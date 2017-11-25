@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zephyr GTK</title>
+  <style type="text/css">
+    @font-face {
+      font-family: 'Noto Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Noto Sans'), local('NotoSans'), url('fonts/NotoSans-Regular.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Noto Sans';
+      font-style: normal;
+      font-weight: 100;
+      src: local('Noto Sans ExtraLight'), local('NotoSans-ExtraLight'), url('fonts/NotoSans-ExtraLight.woff2') format('woff2');
+      font-display: swap;
+    }
+
+    :root {
+      --theme-primary: #96B7A6;
+      --theme-primary-dark: #709080;
+      --theme-primary-light: #A2D5BB;
+      --theme-accent: #dca3a3;
+      --theme-accent-dark: #705050;
+      --theme-neutral: #777;
+      --theme-background: #282828;
+      --theme-foreground: #eff0f1;
+    }
+
+    ::-moz-selection {
+      background: var(--theme-primary);
+    }
+    ::selection {
+      background: var(--theme-primary);
+    }
+
+    body {
+      font-family: 'Noto Sans', Roboto, sans-serif;
+      background-color: var(--theme-background);
+      background-image: url(img/noise.png);
+      color: var(--theme-foreground);
+    }
+    .container {
+      max-width: 900px;
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    a:link,
+    a:visited {
+      color: var(--theme-primary);
+    }
+    a:hover,
+    a:active,
+    a:focus {
+      color: var(--theme-primary-light);
+    }
+    a:focus {
+      outline: 1px solid var(--theme-primary);
+      outline-offset: 1px;
+    }
+
+    .logo {
+      font-size: 80px;
+      font-weight: normal;
+      text-align: center;
+      color: var(--theme-primary);
+      letter-spacing: -2px;
+    }
+    .logo span {
+      color: var(--theme-neutral);
+      font-weight: 100;
+      letter-spacing: normal;
+    }
+
+    section {
+      padding-bottom: 60px;
+    }
+    .lead {
+      padding-top: 60px;
+      text-align: center;
+      font-size: 18px;
+    }
+    .lead strong {
+      font-weight: inherit;
+      color: var(--theme-primary);
+    }
+    .lead em {
+      font-style: inherit;
+      color: var(--theme-accent);
+    }
+
+    footer {
+      text-align: center;
+      opacity: 0.7;
+      padding-bottom: 60px;
+    }
+    footer a {
+      vertical-align: top;
+    }
+    footer .octicon {
+      width: 32px;
+      height: 32px;
+      fill: var(--theme-foreground);
+    }
+
+    h2 {
+      font-weight: normal;
+      color: var(--theme-accent);
+    }
+
+    pre, code {
+      font-family: 'Noto Sans Mono', 'Noto Mono', Menlo, monospace;
+      font-size: 14px;
+    }
+
+    code {
+      color: var(--theme-primary);
+    }
+
+    .shell {
+      padding: 15px;
+      margin-left: -15px;
+      margin-right: -15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+    }
+    .shell .cmd::before {
+      content: '$ ';
+      color: var(--theme-accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">
+      Zephyr <span>GTK</span>
+    </h1>
+
+    <img src="img/gnome-disks.png">
+
+    <section class="lead">
+      <p><strong>Zephyr</strong> is a <em>dark pastel</em> GTK theme built for Xfce, based on Breeze Dark</p>
+    </section>
+
+    <section>
+      <h2>Installation</h2>
+      <p>Just clone the repository into your <code>~/.themes</code> directory:</p>
+      <pre class="shell"><span class="cmd">mkdir -p ~/.themes</span>
+<span class="cmd">cd ~/.themes</span>
+<span class="cmd">git clone --depth=1 https://github.com/Alanaktion/zephyr-gtk.git zephyr</span></pre>
+
+      <br>
+      <p>If you don't have Git installed, try this instead:</p>
+      <pre class="shell"><span class="cmd">mkdir -p ~/.themes</span>
+<span class="cmd">cd ~/.themes</span>
+<span class="cmd">wget https://github.com/Alanaktion/zephyr-gtk/archive/master.zip</span>
+<span class="cmd">mv zephyr-gtk-master zephyr</span>
+<span class="cmd">unzip master.zip</span>
+<span class="cmd">rm master.zip</span></pre>
+
+      <br>
+      <p>If you need a global installation, put Zephyr in <code>/usr/share/themes/</code> instead. Be sure to set the permissions correctly if you do, otherwise it may not work correctly for all users and applications.</p>
+    </section>
+
+    <section>
+      <h2>Building</h2>
+      <p>Zephyr is built as a conversion script from Breeze Dark GTK, and a custom Xwfm theme. If you want to build it yourself, start with [Breeze Dark](https://github.com/KDE/breeze-gtk/tree/master/Breeze-dark-gtk) and run the Zephyr <code>convert.sh</code> script.</p>
+    </section>
+
+    <section>
+      <h2>Contributing</h2>
+      <p>Contributions to Zephyr are welcome, but should typically only change the <code>convert.sh</code> script or the <code>xfwm</code> directory to avoid being overwritten by the conversion script. Take a look at the <a href="https://github.com/Alanaktion/zephyr-gtk/issues" target="_blank">open issues</a> to see what needs to be worked on and what feature requests exist, or just do your own thing and add something neat!</p>
+    </section>
+
+    <footer>
+      <a href="https://github.com/Alanaktion/zephyr-gtk" title="View this project on GitHub" target="_blank">
+        <svg class="octicon" viewBox="0 0 16 16" version="1.1" role="img">
+          <title>GitHub</title>
+          <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+        </svg>
+      </a>
+    </footer>
+  </div>
+</body>
+</html>
