@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>Zephyr GTK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style type="text/css">
     @font-face {
       font-family: 'Noto Sans';
@@ -40,6 +42,11 @@
       background-image: url(img/noise.png);
       color: var(--theme-foreground);
     }
+    @media (resolution: 2dppx) {
+      body {
+        background-size: 100px 100px;
+      }
+    }
     .container {
       max-width: 900px;
       padding-left: 30px;
@@ -73,6 +80,16 @@
       color: var(--theme-neutral);
       font-weight: 100;
       letter-spacing: normal;
+    }
+    @media (max-width: 572px) { /* 80px/14vw*100% */
+      .logo {
+        font-size: 14vw;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     section {
@@ -127,6 +144,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       background-color: rgba(0, 0, 0, 0.15);
       border-radius: 4px;
+      overflow-x: auto;
     }
     .shell .cmd::before {
       content: '$ ';
