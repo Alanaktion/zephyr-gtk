@@ -80,9 +80,31 @@ a:focus {
   }
 }
 
-img {
-  max-width: 100%;
+.img-cluster {
+  position: relative;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60vw;
+  max-height: 860px;
+}
+.img-cluster img {
+  position: absolute;
+  max-width: 60vw;
   height: auto;
+}
+.img-cluster img:nth-child(3) {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  left: 0;
+  top: 7vw;
+}
+.img-cluster img:nth-child(2) {
+  right: 15vw;
+  top: 0;
+}
+.img-cluster img:nth-child(1) {
+  right: 0;
+  top: 10vw;
 }
 
 section {
