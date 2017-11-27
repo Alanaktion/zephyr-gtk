@@ -5,15 +5,21 @@
 # Exit on errors
 set -e
 
-# Recolor PNG assets
-# This moves non-primary-color files to another directory temporarily
+# Recolor and tweak PNG assets
 if [ ! -f assets/.converted ]; then
+  # Temporarily move custom colored images
   mkdir -p assets-tmp
   mv assets/titlebutton-close*active* assets-tmp
   mv assets/titlebutton-close*hover* assets-tmp
+
+  # Recolor blue images
   mogrify -modulate 100,41,72 assets/*.png
+
+  # Move back custom colored images
   mv assets-tmp/* assets/
   rmdir assets-tmp
+
+  # Mark that we've converted these images
   touch assets/.converted
 fi
 
@@ -75,6 +81,16 @@ sed -i -e 's/3daee9/708080/g' gtk-2.0/gtkrc
 find . -type f -name '*.css' -exec sed -i -e 's/3daee9/708080/g' {} \;
 find . -type f -name '*.css' -exec sed -i -e 's/2980b9/a2d5bb/g' {} \;
 find . -type f -name '*.css' -exec sed -i -e 's/61, 174, 233, 0.5/112, 144, 128, 0.8/g' {} \;
+
+# Update gradient colors
+find . -type f -name '*.css' -exec sed -i -e 's/45b1ea/8aa597/g' {} \;
+find . -type f -name '*.css' -exec sed -i -e 's/25a4e6/769585/g' {} \;
+find . -type f -name '*.css' -exec sed -i -e 's/37, 164, 230/118, 149, 133/g' {} \;
+find . -type f -name '*.css' -exec sed -i -e 's/44, 167, 231/122, 153, 137/g' {} \;
+find . -type f -name '*.css' -exec sed -i -e 's/25, 152, 218/106, 137, 122/g' {} \;
+
+# Update tab border color
+find . -type f -name '*.css' -exec sed -i -e 's/61, 174, 233/133, 161, 147/g' {} \;
 
 # Desaturate background colors
 sed -i -e 's/31363b/363636/g' gtk-2.0/gtkrc

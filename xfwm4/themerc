@@ -1,11 +1,9 @@
 # Zephyr Dark Xfwm theme
 # Based on Breeze Dark Xfwm
 
-active_text_color=#cecece
 button_offset=3
 button_spacing=4
 full_width_title=true
-inactive_text_color=#B1B1B1
 maximized_offset=2
 show_app_icon=false
 title_horizontal_offset=0
