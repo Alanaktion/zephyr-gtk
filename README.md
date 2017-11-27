@@ -8,7 +8,7 @@ This repo contains the compiled theme, but building it from the original Breeze 
 
 ### Xfwm theme
 
-Note that the Xfwm theme is custom-built and is not built from the Breeze GTK files.
+The Xfwm theme is partially generated based on image files from the GTK theme, primarily for button images.
 
 ## License
 

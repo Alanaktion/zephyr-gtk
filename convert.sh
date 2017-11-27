@@ -17,6 +17,33 @@ if [ ! -f assets/.converted ]; then
   touch assets/.converted
 fi
 
+# Build Xfwm theme button images
+bgactive='#709080'
+bginactive='#363636'
+function asset2xwfm ()
+{
+  convert "assets/$1.png" -background "$3" -alpha remove "xfwm4/$2.xpm"
+}
+asset2xwfm titlebutton-close close-active "$bgactive"
+asset2xwfm titlebutton-close-hover close-prelight "$bgactive"
+asset2xwfm titlebutton-close-active close-pressed "$bgactive"
+asset2xwfm titlebutton-close-backdrop close-inactive "$bginactive"
+
+asset2xwfm titlebutton-maximize maximize-active "$bgactive"
+asset2xwfm titlebutton-maximize-hover maximize-prelight "$bgactive"
+asset2xwfm titlebutton-maximize-active maximize-pressed "$bgactive"
+asset2xwfm titlebutton-maximize-backdrop maximize-inactive "$bginactive"
+
+asset2xwfm titlebutton-minimize hide-active "$bgactive"
+asset2xwfm titlebutton-minimize-hover hide-prelight "$bgactive"
+asset2xwfm titlebutton-minimize-active hide-pressed "$bgactive"
+asset2xwfm titlebutton-minimize-backdrop hide-inactive "$bginactive"
+
+asset2xwfm titlebutton-maximize-maximized maximize-toggled-active "$bgactive"
+asset2xwfm titlebutton-maximize-maximized-hover maximize-toggled-prelight "$bgactive"
+asset2xwfm titlebutton-maximize-maximized-active maximize-toggled-pressed "$bgactive"
+asset2xwfm titlebutton-maximize-maximized-backdrop maximize-toggled-inactive "$bginactive"
+
 # Update primary colors in theme files
 sed -i -e 's/3daee9/708080/g' gtk-2.0/gtkrc
 find . -type f -name '*.css' -exec sed -i -e 's/3daee9/708080/g' {} \;
