@@ -32,8 +32,12 @@ function asset2xwfm ()
 }
 
 asset2xwfm close close-active "$bgactive"
-asset2xwfm close-hover close-prelight "$bgactive"
-asset2xwfm close-active close-pressed "$bgactive"
+convert "xfwm4/src/close-backdrop.png" "assets/titlebutton-close-hover.png" \
+  -gravity center -composite  \
+  -background "$bgactive" -alpha remove "xfwm4/close-prelight.xpm"
+convert "xfwm4/src/close-backdrop.png" "assets/titlebutton-close-active.png" \
+  -gravity center -composite  \
+  -background "$bgactive" -alpha remove "xfwm4/close-pressed.xpm"
 asset2xwfm close-backdrop close-inactive "$bginactive"
 
 asset2xwfm maximize maximize-active "$bgactive"
